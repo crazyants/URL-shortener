@@ -1,0 +1,14 @@
+﻿@using urlshortener.Models
+@model URLModelFormViewModel
+
+@using (Html.BeginForm("URLForm", "Home", FormMethod.Post))
+{
+    <div class="form-group" style="padding-left: 15px">
+        @Html.LabelFor(m => m.LongURL, "Enter URL:")
+        <div class="input-group">
+            <span class="input-group-addon">></span>
+            @Html.TextBoxFor(m => m.LongURL, new { @class = "form-control" })
+            <input type="submit" value="Shorten URL" class="btn btn-primary" />
+        </div>
+    </div>
+}

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <a class="navbar-brand" href="~/Home/Index/">URL Shortener</a>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                @if ((Session["UserID"] != null && string.IsNullOrEmpty(Session["UserID"].ToString())) || Session["UserID"] == null)
+                {
+                    
+                    <li>@Html.ActionLink("Sign up", "Index", "Registration")</li>
+                    <li>@Html.ActionLink("Log in", "Login", "Registration")</li>
+                }
+                else
+                {
+                   <li><a hre="#">@Session["Nickname"]</a></li>
+                   <li>@Html.ActionLink("Log out", "LogOut", "Registration")</li>
+                }
+            </ul>
+        </div>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

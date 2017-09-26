@@ -1,0 +1,24 @@
+﻿@using urlshortner.Entities.Models
+@using System.Diagnostics
+@model  IEnumerable<URLModel>
+
+<div class="col-md-6">
+    @if (Model.Any())
+    {
+        <table class="table table-striped table-sm" align="left">
+            <tr>
+                <th>Long URL</th>
+                <th>Short URL</th>
+                <th>Clicks</th>
+            </tr>
+            @foreach (var tmp in Model)
+            {
+                <tr>
+                    <td><a href=@tmp.LongURL>@tmp.LongURL</a></td>
+                    <td>@Html.ActionLink(@tmp.ShortURL, "ActionLinkRedirect", "Home", new { id = @tmp.Id }, new { target = "blank" })</td>
+                    <td>@tmp.ClickCount</td>
+                </tr>
+            }
+        </table>
+    }
+</div>
