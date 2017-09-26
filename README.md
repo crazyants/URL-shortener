@@ -2,6 +2,7 @@
 Simple URL shortener like goo.gl, bit.ly and others, with a simple authentication/authorization system.
 
 Document with the task itself.
+
 Create single page application which will shorten links (ex.: goo.gl, bitly.com)
 
 Data persistence - I should be able to view short links when i reopen the browser (use cookies to store temporary user)
